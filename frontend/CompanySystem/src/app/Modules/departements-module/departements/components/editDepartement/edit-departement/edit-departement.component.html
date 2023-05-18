@@ -1,0 +1,30 @@
+<div class="mt-5 w-75 mx-auto p-5 bg-light">
+    <p class="text-dark lead fs-2 text-center"> edit departement</p>
+
+    
+  <form [formGroup]="departementForm" (ngSubmit)="addDept($event)">
+
+    <div class="mb-3 form-floating">
+        
+        <input type="text" class="form-control"  formControlName="departementName" id = "floatingInput" [(ngModel)]="departementNameBeforeEdit">
+        <label class="form-label " for = "floatingInput"> Name </label>
+        <ng-container *ngIf="getDepartementNameStatus.touched">
+          <div *ngIf="getDepartementNameStatus.hasError('required')" id="emailHelp" class="form-text text-danger">Departement name is
+            required </div>
+
+
+        </ng-container>
+      </div>
+
+
+      <div class="mb-3 form-floating">
+        
+        <input type="text" class="form-control"  formControlName="departementDescription" id = "floatingInput"
+        [(ngModel)]="departementDescriptionBeforeEdit">
+        <label class="form-label " for = "floatingInput"> Description </label>
+      </div>
+
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
